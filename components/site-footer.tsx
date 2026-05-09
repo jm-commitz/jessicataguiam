@@ -1,56 +1,81 @@
-const connectLinks = ["LinkedIn", "Instagram", "Behance", "Email"];
+"use client";
+
+import { Mail } from "lucide-react";
+
+function openLink(href: string) {
+  window.open(href, "_blank", "noopener,noreferrer");
+}
+
+const connectLinks = [
+  {
+    label: "LinkedIn",
+    href: "http://linkedin.com/in/jessica-taguiam-5ab901267",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+      </svg>
+    ),
+  },
+  {
+    label: "Viber",
+    href: "viber://chat?number=%2B639052060131",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M11.4 0C9.473.028 5.333.344 3.02 2.467 1.302 4.187.696 6.7.633 9.817.57 12.933.488 18.776 6.12 20.36h.003l-.004 2.416s-.037.977.61 1.177c.777.242 1.234-.5 1.98-1.302.407-.44.972-1.084 1.397-1.58 3.85.326 6.812-.416 7.15-.525.776-.252 5.176-.816 5.892-6.657.74-6.02-.36-9.83-2.34-11.546-.596-.55-3.006-2.3-8.375-2.323 0 0-.395-.025-1.037-.017zm.058 1.693c.545-.004.88.017.88.017 4.542.02 6.717 1.388 7.222 1.846 1.675 1.435 2.53 4.868 1.906 9.897v.002c-.604 4.878-4.174 5.184-4.832 5.395-.28.09-2.882.737-6.153.524 0 0-2.436 2.94-3.197 3.704-.12.12-.26.167-.352.144-.13-.033-.166-.188-.165-.414l.02-4.018c-4.762-1.32-4.485-6.292-4.43-8.895.054-2.604.543-4.738 1.996-6.173 1.96-1.773 5.474-2.018 7.11-2.03zm.38 2.602c-.167 0-.303.135-.304.302 0 .167.133.303.3.305 1.624.01 2.946.537 4.028 1.592 1.073 1.046 1.62 2.468 1.633 4.334.002.167.14.3.307.3.166-.002.3-.138.3-.304-.014-1.984-.618-3.596-1.816-4.764-1.19-1.16-2.692-1.753-4.447-1.765zm-3.96.695c-.19-.032-.4.005-.616.117l-.01.002c-.43.247-.816.562-1.146.932-.002.004-.006.004-.008.008-.267.323-.42.638-.46.948-.008.046-.01.093-.007.14 0 .136.022.27.065.4l.013.01c.135.48.473 1.276 1.205 2.604.42.768.903 1.5 1.446 2.186.27.344.56.673.87.984l.132.132c.31.308.64.6.984.87.686.543 1.418 1.027 2.186 1.447 1.328.733 2.126 1.07 2.604 1.206l.01.014c.13.042.265.064.402.063.046.002.092 0 .138-.008.31-.036.627-.19.948-.46.004 0 .003-.002.008-.005.37-.33.683-.72.93-1.148l.003-.01c.225-.432.15-.842-.18-1.12-.004 0-.698-.58-1.037-.83-.36-.255-.73-.492-1.113-.71-.51-.285-1.032-.106-1.248.174l-.447.564c-.23.283-.657.246-.657.246-3.12-.796-3.955-3.955-3.955-3.955s-.037-.426.248-.656l.563-.448c.277-.215.456-.737.17-1.248-.217-.383-.454-.756-.71-1.115-.25-.34-.826-1.033-.83-1.035-.137-.165-.31-.265-.502-.297zm4.49.88c-.158.002-.29.124-.3.282-.01.167.115.312.282.324 1.16.085 2.017.466 2.645 1.15.63.688.93 1.524.906 2.57-.002.168.13.306.3.31.166.003.305-.13.31-.297.025-1.175-.334-2.193-1.067-2.994-.74-.81-1.777-1.253-3.05-1.346h-.024zm.463 1.63c-.16.002-.29.127-.3.287-.008.167.12.31.288.32.523.028.875.175 1.113.422.24.245.388.62.416 1.164.01.167.15.295.318.287.167-.008.295-.15.287-.317-.03-.644-.215-1.178-.58-1.557-.367-.378-.893-.574-1.52-.607h-.018z"/>
+      </svg>
+    ),
+  },
+  {
+    label: "WhatsApp",
+    href: "https://api.whatsapp.com/send?phone=639052060131",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+      </svg>
+    ),
+  },
+  {
+    label: "Email",
+    href: "mailto:iccataguiam27@gmail.com",
+    icon: <Mail size={16} />,
+  },
+];
 
 export function SiteFooter() {
   return (
-    <footer id="contact" className="bg-secondary">
-      <div className="max-w-screen-2xl mx-auto px-8 pt-16 pb-12 grid grid-cols-3 gap-16">
+    <footer id="contact" className="bg-foreground dark:bg-zinc-200 text-background">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 pt-12 sm:pt-16 pb-10 sm:pb-12 grid grid-cols-1 sm:grid-cols-2 gap-10 lg:gap-16">
         <div>
           <p className="font-heading text-sm font-bold tracking-widest mb-4">JESS_WORKS</p>
-          <p className="text-xs text-muted-foreground leading-relaxed max-w-[220px]">
-            Architectural design studio focused on minimalist modernism and
-            technical structural integrity.
+          <p className="text-base text-background/90 leading-relaxed max-w-[320px]">
+            Translating ideas into precise technical drawings — floor plans, sections, and details built to spec.
           </p>
         </div>
 
         <div>
-          <p className="text-xs tracking-[0.25em] uppercase text-muted-foreground mb-5">Connect</p>
+          <p className="text-xs tracking-[0.25em] uppercase text-background/50 mb-5">Connect</p>
           <ul className="space-y-3">
-            {connectLinks.map((link) => (
-              <li key={link}>
-                <a
-                  href="#"
-                  className="text-sm border-b border-foreground/40 pb-0.5 hover:border-foreground transition-colors"
+            {connectLinks.map(({ label, href, icon }) => (
+              <li key={label}>
+                <button
+                  onClick={() => openLink(href)}
+                  className="flex items-center gap-2.5 text-sm text-background/80 border-b border-background/20 pb-0.5 hover:text-background hover:border-background transition-colors cursor-pointer"
                 >
-                  {link}
-                </a>
+                  {icon}
+                  {label}
+                </button>
               </li>
             ))}
           </ul>
         </div>
 
-        <div>
-          <p className="text-xs tracking-[0.25em] uppercase text-muted-foreground mb-5">Studio</p>
-          <p className="text-sm leading-relaxed text-foreground">
-            22nd Floor, Structural Plaza<br />
-            Berlin, Germany<br />
-            +49 (0) 30 123 4567
-          </p>
-        </div>
       </div>
 
-      <div className="border-t border-border">
-        <div className="max-w-screen-2xl mx-auto px-8 py-4 flex items-center justify-between">
-          <p className="text-xs tracking-widest uppercase text-muted-foreground">
-            © 2024 JESS_WORKS Architecture. All Rights Reserved.
+      <div className="border-t border-background/10">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 py-4">
+          <p className="text-xs tracking-widest uppercase text-background/40">
+            © 2026 JESS_WORKS Architecture. All Rights Reserved.
           </p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-              Terms of Service
-            </a>
-          </div>
         </div>
       </div>
     </footer>

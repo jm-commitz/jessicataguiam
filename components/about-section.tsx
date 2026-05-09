@@ -20,15 +20,15 @@ const skills = [
 export function AboutSection() {
   return (
     <section id="about" className="py-24 border-t border-border">
-      <div className="max-w-screen-2xl mx-auto px-8">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-8">
         <div className="mb-10">
           <p className="text-xs tracking-[0.35em] uppercase text-muted-foreground mb-3">
             About
           </p>
-          <h2 className="font-heading text-4xl font-bold">The Draftsman</h2>
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold">The Draftsman</h2>
         </div>
 
-        <div className="grid grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left — Portrait + Credentials */}
           <div className="flex flex-col gap-8">
             <div className="relative w-full aspect-4/3 bg-white border border-border overflow-hidden">
@@ -44,7 +44,7 @@ export function AboutSection() {
               </span>
             </div>
 
-            <div className="grid grid-cols-3 gap-px border border-border">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-px border border-border">
               {credentials.map((item) => (
                 <div key={item.label} className="flex flex-col gap-1 p-4 bg-background">
                   <span className="text-[10px] tracking-[0.25em] uppercase text-muted-foreground">
@@ -59,13 +59,13 @@ export function AboutSection() {
           {/* Right — Bio + Skills */}
           <div className="flex flex-col gap-10 pt-2">
             <div className="flex flex-col gap-4">
-              <p className="text-base text-muted-foreground leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 I hold a Bachelor of Science in Industrial Technology, major in Architectural
                 Drafting Technology from Cagayan State University, complemented by a
                 Technical Drafting NC II certification and a Career Service Professional
                 Eligibility from the Civil Service Commission.
               </p>
-              <p className="text-base text-muted-foreground leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 My hands-on experience spans both architectural and industrial-technical
                 drafting: producing construction-ready floor plans, layouts, and as-built
                 documents for government infrastructure, and drafting detailed platform
@@ -73,7 +73,7 @@ export function AboutSection() {
                 I work closely with architects and engineers to keep drawings accurate
                 through every revision cycle.
               </p>
-              <p className="text-base text-muted-foreground leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 I take precision seriously — not just in the lines I draw, but in how I
                 manage documentation, track revisions, and communicate across teams.
                 Every drawing I deliver is clean, buildable, and built to last through
@@ -101,7 +101,7 @@ export function AboutSection() {
               <a
                 href="/images/files/JESSICA_TAGUIAM_CV.pdf"
                 download
-                className="text-sm border border-foreground px-6 py-2 hover:bg-foreground hover:text-background transition-colors"
+                className="text-sm border border-foreground px-5 sm:px-6 py-2 hover:bg-foreground hover:text-background transition-colors"
               >
                 Download CV
               </a>

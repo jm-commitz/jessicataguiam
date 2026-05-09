@@ -27,10 +27,10 @@ const phases = [
 
 export function TechnicalApproach() {
   return (
-    <section className="bg-muted py-24">
-      <div className="max-w-screen-2xl mx-auto px-8 grid grid-cols-2 gap-20 items-start">
+    <section className="bg-muted py-16 sm:py-24">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
         <div>
-          <h2 className="font-heading text-4xl font-bold leading-tight mb-6">
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold leading-tight mb-6">
             Our Technical<br />Approach
           </h2>
           <p className="text-sm text-muted-foreground leading-relaxed max-w-[280px]">
@@ -39,7 +39,7 @@ export function TechnicalApproach() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-x-10 gap-y-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10">
           {phases.map((item) => (
             <div key={item.phase}>
               <p className="text-xs tracking-[0.25em] uppercase text-muted-foreground mb-2">
