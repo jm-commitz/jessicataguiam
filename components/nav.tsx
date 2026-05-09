@@ -103,38 +103,61 @@ export function Nav() {
           </div>
         </div>
 
-        {/* Mobile menu */}
-        {menuOpen && (
-          <div className="md:hidden border-t border-border bg-background/95 backdrop-blur">
-            <nav className="max-w-screen-2xl mx-auto px-4 py-4 flex flex-col gap-4">
-              {navLinks.map(({ label, href }) => {
-                const id = href.slice(1);
-                const isActive = active === id;
-                return (
-                  <a
-                    key={href}
-                    href={href}
-                    onClick={(e) => handleClick(e, href)}
-                    className={
-                      isActive
-                        ? "text-sm border-b border-foreground pb-0.5 self-start"
-                        : "text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    }
-                  >
-                    {label}
-                  </a>
-                );
-              })}
-              <button
-                onClick={() => { setInquiryOpen(true); setMenuOpen(false); }}
-                className="mt-2 text-sm border border-foreground px-5 py-2 hover:bg-foreground hover:text-background transition-colors self-start"
-              >
-                Inquiry
-              </button>
-            </nav>
-          </div>
-        )}
       </header>
+
+      {/* Mobile drawer backdrop */}
+      <div
+        className={`fixed inset-0 z-40 bg-foreground/20 backdrop-blur-sm transition-opacity duration-300 md:hidden ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        onClick={() => setMenuOpen(false)}
+      />
+
+      {/* Mobile drawer */}
+      <div
+        className={`fixed top-0 right-0 z-50 h-full w-72 bg-background flex flex-col transition-transform duration-300 ease-in-out md:hidden ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
+      >
+        <div className="flex items-center justify-end px-6 h-16 border-b border-border shrink-0">
+          <button
+            onClick={() => setMenuOpen(false)}
+            aria-label="Close menu"
+            className="p-1"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <line x1="1" y1="1" x2="15" y2="15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              <line x1="15" y1="1" x2="1" y2="15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <nav className="flex flex-col gap-1 px-6 pt-8 flex-1">
+          {navLinks.map(({ label, href }) => {
+            const id = href.slice(1);
+            const isActive = active === id;
+            return (
+              <a
+                key={href}
+                href={href}
+                onClick={(e) => handleClick(e, href)}
+                className={
+                  isActive
+                    ? "text-sm border-b border-foreground pb-0.5 self-start mb-3"
+                    : "text-sm text-muted-foreground hover:text-foreground transition-colors mb-3"
+                }
+              >
+                {label}
+              </a>
+            );
+          })}
+        </nav>
+
+        <div className="px-6 pb-10 shrink-0">
+          <button
+            onClick={() => { setInquiryOpen(true); setMenuOpen(false); }}
+            className="w-full text-sm border border-foreground px-5 py-2.5 hover:bg-foreground hover:text-background transition-colors"
+          >
+            Inquiry
+          </button>
+        </div>
+      </div>
 
       <InquiryModal open={inquiryOpen} onClose={() => setInquiryOpen(false)} />
     </>

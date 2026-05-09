@@ -17,9 +17,9 @@ export function HeroSection() {
   return (
     <section id="home" className="relative flex h-[calc(100vh-4rem)] flex-col overflow-hidden lg:overflow-visible">
       <div className="max-w-screen-2xl mx-auto w-full flex-1 grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-16 items-center pb-20 px-4 sm:px-8">
-        {/* Image — floats to top on mobile, overflows upward */}
+        {/* Image — below text on mobile, overlaps slightly */}
         <div
-          className="relative w-full max-h-[42vh] lg:max-h-none aspect-square max-w-[560px] lg:max-w-none justify-self-center lg:justify-self-stretch order-first lg:order-none -mt-16 lg:mt-0 cursor-pointer select-none"
+          className="relative w-full max-h-[42vh] lg:max-h-none aspect-square max-w-[560px] lg:max-w-none justify-self-center lg:justify-self-stretch order-last lg:order-none -mt-8 lg:mt-0 cursor-pointer select-none"
           onClick={(e) => {
             const rect = e.currentTarget.getBoundingClientRect();
             toggle(rect.left + rect.width / 2, rect.top + rect.height / 2);
@@ -35,7 +35,7 @@ export function HeroSection() {
           />
         </div>
 
-        <div className="flex flex-col gap-5 lg:gap-7 order-last lg:order-none">
+        <div className="flex flex-col gap-5 lg:gap-7 order-first lg:order-none pt-6 lg:pt-0">
           <h1 className="font-heading font-bold leading-none tracking-tight text-foreground text-4xl sm:text-6xl lg:text-[5.5rem]">
             <span className="block">WHERE LINES</span>
             <span className="block">BECOME SPACES.</span>
@@ -45,7 +45,8 @@ export function HeroSection() {
           </p>
           <div className="flex items-center gap-4">
             <a
-              href="#"
+              href="#projects"
+              onClick={(e) => { e.preventDefault(); document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" }); }}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               View Works
