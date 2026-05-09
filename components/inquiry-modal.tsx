@@ -62,7 +62,7 @@ export function InquiryModal({ open, onClose }: Props) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: "YOUR_WEB3FORMS_ACCESS_KEY",
+          access_key: "ca909b4b-df80-41a8-8b43-ccba08db526c",
           subject: `New Project Inquiry — ${form.projectType || "General"} from ${form.name}`,
           from_name: form.name,
           replyto: form.email,
